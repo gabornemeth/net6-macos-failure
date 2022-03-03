@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0-macos</TargetFramework>
+    <RuntimeIdentifier>osx-x64</RuntimeIdentifier>
+    <RootNamespace>net6_console_mac_sample</RootNamespace>
+    <SupportedOSPlatformVersion>10.15</SupportedOSPlatformVersion>
+
+    <!--
+      WORKAROUND to get the bundle to contain a binary
+      see https://github.com/xamarin/xamarin-macios/issues/11094
+    -->
+    <SelfContained>true</SelfContained>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <EnableCodeSigning>false</EnableCodeSigning>
+    <UseSGen>false</UseSGen>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <EnableCodeSigning>false</EnableCodeSigning>
+    <UseSGen>false</UseSGen>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="OpenTK.NetStandard" Version="1.0.5.32" />
+  </ItemGroup>
+
+</Project>
